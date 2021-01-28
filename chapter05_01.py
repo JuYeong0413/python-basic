@@ -61,3 +61,44 @@ def func_mul4(x):
 
 d = func_mul4(30)
 print(type(d), d, d.get('v2'), d.items(), d.keys())
+
+# 중요
+# *args, **kwargs
+
+# *args(언팩킹)
+def args_func(*args): # 매개변수 명은 자유
+    for i, v in enumerate(args):
+        print('Result : {}'.format(i), v)
+    print('-----')
+
+## 매개변수가 가변(얼마나 들어올지 모름), 그 횟수만큼 unpack
+args_func('Lee')
+args_func('Lee', 'Park')
+args_func('Lee', 'Park', 'Kim') ## 하나의 튜플 형태로 간주됨
+
+# **kwargs(언팩킹)
+def kwargs_func(**kwargs): # 매개변수 명 자유
+    for v in kwargs.keys():
+        print("{}".format(v), kwargs[v])
+    print('-----')
+
+kwargs_func(name1='Lee', name2='Park')
+kwargs_func(name1='Lee', name2='Park', name3='Cho') ## 딕셔너리 형태
+
+# 전체 혼합
+def example(args_1, args_2, *args, **kwargs):
+    print(args_1, args_2, args, kwargs)
+
+example(10, 20, 'Lee', 'Kim', 'Park', 'Cho', age1=20, age2=30, age3=40)
+
+# 중첩함수
+def nested_func(num):
+    def func_in_func(num):
+        print(num)
+    print("In func")
+    func_in_func(num + 100)
+
+nested_func(100)
+
+# 실행불가
+# func_in_func(1000)
