@@ -102,3 +102,43 @@ nested_func(100)
 
 # 실행불가
 # func_in_func(1000)
+
+# 람다식 예제
+# 메모리 절약, 가독성 향상, 코드 간결
+# 함수는 객체 생성 -> 리소스(메모리) 할당
+# 람다는 즉시 실행 함수(Heap 초기화) -> 메모리 초기화
+# 남발 시 가독성 오히려 감소
+
+# 일반적함수 -> 할당
+def mul_func(x, y):
+    return x * y
+
+q = mul_func(10, 50)
+print(q)
+
+print(mul_func(10, 50))
+
+mul_func_var = mul_func
+print(mul_func_var(20, 50))
+
+# 람다 함수 -> 할당
+lambda_mul_func = lambda x, y: x * y ## 함수에 이름이 없다(익명 함수) -> 변수에 담아서 쓰거나 함수의 인자로 넘길 수 있다.
+print(lambda_mul_func(50, 50))
+
+def func_final(x, y, func):
+    print('>>>>', x * y * func(100, 100))
+
+func_final(10, 20, lambda x, y: x * y)
+func_final(10, 20, lambda_mul_func)
+func_final(10, 20, mul_func_var)
+
+# Hint
+def tot_length1(word: str, num: int) -> int:
+    return len(word) * num
+
+print('hint exam1 : ', tot_length1("i love you", 10))
+
+def tot_length2(word: str, num: int) -> None:
+    print('hint exam2 : ', len(word) * num)
+
+tot_length2("niceman", 10)
