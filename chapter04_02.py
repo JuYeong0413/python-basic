@@ -87,3 +87,26 @@ for v in lt:
     print("current type:", v, type(v))
     print("multiply by 2", v * 2)
     # print(True * 3)
+
+# for - else
+numbers = [14, 3, 4, 7, 10, 24, 17, 2, 33, 15, 34, 36, 38]
+
+for num in numbers:
+    if num == 24:
+        print("Found : 24")
+        break
+else: ## for문을 다 반복했을 경우 else 실행, for문이 중간에 종료되었을 경우에는 실행되지 않음
+    print("Not Found : 24") ## 끝까지 찾았지만 24는 없었다.
+
+# 구구단 출력
+for i in range(2, 10):
+    for j in range(1, 10):
+        print('{:4d}'.format(i * j), end='')
+    print()
+
+# 변환 예제
+name2 = 'Aceman'
+print('Reversed', reversed(name2))
+print('List', list(reversed(name2)))
+print('Tuple', tuple(reversed(name2)))
+print('Set', set(reversed(name2))) # 순서X
