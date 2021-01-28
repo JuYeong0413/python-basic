@@ -101,3 +101,25 @@ print(dir(im_str)) # __iter__
 # 출력
 for i in im_str:
     print(i)
+
+# 슬라이싱
+str_sl = "Nice Python"
+print(len(str_sl))
+
+# 슬라이싱 연습
+print(str_sl[0:3]) # 0 1 2
+print(str_sl[5:]) # [5:11]
+print(str_sl[:len(str_sl)]) # str_sl[:11]
+print(str_sl[:len(str_sl)-1]) # str_sl[:10]
+print(str_sl[1:9:2]) ## 몇 개 단위로 점프하면서 가져오는지
+print(str_sl[-5:])
+print(str_sl[1:-2])
+print(str_sl[::2]) ## 처음부터 끝까지 두 칸 간격으로
+print(str_sl[::-1])
+
+# 아스키 코드(또는 유니코드)
+a = 'z'
+# 아스키 코드로
+print(ord(a)) ## z에 해당하는 아스키 숫자 값은 122
+# 문자로
+print(chr(122)) ## 아스키 코드 -> 알파벳
