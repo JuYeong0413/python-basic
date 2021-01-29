@@ -25,3 +25,52 @@ cts = f.read()
 print(cts)
 # 반드시 close
 f.close()
+
+# 예제2
+## with문에 있는 내용을 모두 실행하고 나올 때는 파이썬 내부적으로 with에서 사용했던 리소스를 자동으로 반환해준다.
+with open('./resource/it_news.txt', 'r', encoding='UTF-8') as f:
+    c = f.read()
+    print(c)
+    print(iter(c))
+    print(list(c))
+    ## f.close() 호출하지 않아도 내부적으로 connection이 닫힘
+
+print()
+
+# 예제3
+# read() : 전체 읽기, read(10) : 10Byte
+with open('./resource/it_news.txt', 'r', encoding='UTF-8') as f:
+    c = f.read(20)
+    print(c)
+    c = f.read(20)
+    print(c)
+    c = f.read(20)
+    print(c)
+    f.seek(0, 0) ## (from 0, to 0)으로 이동하고 다시 읽겠다
+    c = f.read(20)
+    print(c)
+
+print()
+
+# 예제4
+# readline : 한 줄씩 읽기
+## 개행이 되기 전까지 한 줄씩 읽어온다.
+with open('./resource/it_news.txt', 'r', encoding='UTF-8') as f:
+    line = f.readline()
+    print(line)
+    line = f.readline()
+    print(line)
+
+print()
+
+# 예제5
+# readlines : 전체를 읽은 후 라인 단위 리스트로 저장
+## 하나의 줄바꿈도 리스트로 들어온다 -> '\n'
+with open('./resource/it_news.txt', 'r', encoding='UTF-8') as f:
+    cts = f.readlines()
+    print(cts)
+    print()
+    for c in cts:
+        print(c, end='')
+
+print()
