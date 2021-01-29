@@ -68,6 +68,8 @@ while turns > 0:
     if failed == 0:
         print()
         print()
+        # 성공 사운드
+        winsound.PlaySound('./sound/good.wav', winsound.SND_FILENAME) ## 파일 네임 그대로 재생
         print('Congratulations! The Guesses is correct.')
         # while 구문 중단
         break
@@ -75,6 +77,7 @@ while turns > 0:
 
     # 추측 단어 문자 단위 입력
     print()
+    print('Hint : {}'.format(q[1].strip()))
     guess = input("guess a character. ")
 
     # 단어 더하기
@@ -90,4 +93,7 @@ while turns > 0:
         print("You have", turns, 'more guesses!')
 
         if turns == 0:
+            # 실패 사운드
+            winsound.PlaySound('./sound/bad.wav', winsound.SND_FILENAME)
+            # 실패 메시지
             print("Your hangman game failed. Bye!")
